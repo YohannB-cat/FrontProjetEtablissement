@@ -1,1 +1,40 @@
-<p>all-classe works!</p>
+<a routerLink='/classe/add'>Création</a>
+<div class="container">
+    <div id="search-component">
+        <br>
+        <h2><label for="search-box">Rechercher par ID</label></h2>
+
+        <input type="number" #searchBox id="search-box" />
+        <button type="button" class="btn btn-info" (click)="this.search(searchBox.value)">Chercher</button>
+
+        <div *ngIf="classe">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Liste Etudiants</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{classe.id}}</td>
+                        <td>{{classe.nom}}</td>
+                        <td>{{classe.liste}}</td>
+                        <td><button class="btn btn-danger" (click)="this.delete(c.id)">Supprimer</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="this.messageErreur.length">
+            {{this.messageErreur}}
+        </div>
+
+    </div>
+
+    <h2>Liste des classes : </h2>
+    <table>
+        
+    </table>
+</div>
