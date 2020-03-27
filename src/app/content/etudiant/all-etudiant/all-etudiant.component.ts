@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EtudiantUpdateDto } from 'src/app/models/etudiant-create-dto';
+import { EtudiantCreateDto } from 'src/app/models/etudiant-create-dto';
 import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
 })
 export class AllEtudiantComponent implements OnInit {
 
-  allEtudiant = new Array<EtudiantUpdateDto>();
+  allEtudiant = new Array<EtudiantCreateDto>();
 
   constructor(private service: EtudiantsService) { }
 

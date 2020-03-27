@@ -1,4 +1,12 @@
 <div class="container">
+    <div id="search-component">
+        <br>
+        <h2><label for="search-box">Recherche par ID</label></h2>
+
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+        <button type="button" class="btn btn-info">Chercher</button>
+    </div>
+
     <h2>Liste des étudiants :</h2>
     <table class="table table-hover">
         <thead>

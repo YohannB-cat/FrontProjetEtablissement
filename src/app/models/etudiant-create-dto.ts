@@ -1,5 +1,5 @@
-import { EtudiantCreateDto } from './etudiant-dto';
+import { EtudiantDto } from './etudiant-dto';
 
-export class EtudiantUpdateDto extends EtudiantCreateDto{
+export class EtudiantCreateDto extends EtudiantDto{
     identifiant: number;
 }
