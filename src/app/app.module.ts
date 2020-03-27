@@ -11,6 +11,8 @@ import { AllEtudiantComponent } from './content/etudiant/all-etudiant/all-etudia
 import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/create-etudiant.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
+import { AllMatiereComponent } from './matiere/all-matiere/all-matiere.component';
+import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DashboardComponent } from './content/dashboard/dashboard.component';
     NavBarComponent,
     AllEtudiantComponent,
     CreateEtudiantComponent,
-    DashboardComponent
+    DashboardComponent,
+    AllMatiereComponent,
+    MatiereDetailComponent
   ],
   imports: [
     BrowserModule,
