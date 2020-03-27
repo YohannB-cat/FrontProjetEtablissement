@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "etab-scho"
+    }
+  },
+  "defaultProject": "etab-scho",
+  "cli": {
+    "analytics": "5a14202c-91c0-4744-9101-70ef1de87d97"
+  }
 }

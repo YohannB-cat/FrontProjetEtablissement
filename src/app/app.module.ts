@@ -11,6 +11,7 @@ import { AllEtudiantComponent } from './content/etudiant/all-etudiant/all-etudia
 import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/create-etudiant.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
+import { ExamenComponent } from './content/examen/examen.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DashboardComponent } from './content/dashboard/dashboard.component';
     NavBarComponent,
     AllEtudiantComponent,
     CreateEtudiantComponent,
-    DashboardComponent
+    DashboardComponent,
+    ExamenComponent
   ],
   imports: [
     BrowserModule,
