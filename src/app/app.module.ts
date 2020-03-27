@@ -20,6 +20,7 @@ import { AllMatiereComponent } from './content/matiere/all-matiere/all-matiere.c
 import { MatiereDetailComponent } from './content/matiere/matiere-detail/matiere-detail.component';
 import { AllModuleComponent } from './content/module/all-module/all-module.component';
 import { DetailModuleComponent } from './content/module/detail-module/detail-module.component';
+import { UpdateComponent } from './content/etudiant/update/update.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { DetailModuleComponent } from './content/module/detail-module/detail-mod
     CreateClasseComponent,
     AllModuleComponent,
     DetailModuleComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,

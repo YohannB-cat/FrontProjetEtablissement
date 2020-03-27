@@ -80,7 +80,7 @@
                 <th>Code Postal</th>
                 <th>Sexe</th>
                 <th>En Etude</th>
-                <th>Actions</th>
+                <th colspan="2">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -103,15 +103,20 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="enEtude">
+                    <div *ngIf="e.enEtude">
                         Oui
                     </div>
-                    <div *ngIf="!enEtude">
+                    <div *ngIf="!e.enEtude">
                         Non
                     </div>
                 </td>
                 <td>
                     <button class="btn btn-danger" (click)="this.delete(e.identifiant)">Supprimer</button>
+                </td>
+                <td>
+                    <a routerLink='/etudiant/update'> <button class="btn btn-dark"
+                            (click)="this.delete(e.identifiant)">Modifier</button>
+                    </a>
                 </td>
             </tr>
         </tbody>
