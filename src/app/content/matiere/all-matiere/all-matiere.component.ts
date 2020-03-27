@@ -3,6 +3,7 @@ import { MatiereCreateDto } from 'src/app/models/matiere-create-dto';
 import { MatiereService } from 'src/app/services/mmatiere/matiere.service';
 
 
+
 @Component({
   selector: 'app-all-matiere',
   templateUrl: './all-matiere.component.html',
@@ -13,6 +14,8 @@ export class AllMatiereComponent implements OnInit {
   allMatieres = new Array<MatiereCreateDto>();
   messageValidation ='';
   messageEchec='';
+  matiereById = new MatiereCreateDto();
+  matiereCreate = new MatiereCreateDto();
 
   constructor(private service: MatiereService) { }
 
@@ -31,8 +34,20 @@ export class AllMatiereComponent implements OnInit {
     );
   }
 
-  create(matiere : MatiereCreateDto) {
-    this.service.create(matiere).subscribe(
+  getOne(id : number) {
+    this.service.getOne(id).subscribe(
+      responseDto => {
+        if(!responseDto.error) {
+          this.matiereById = responseDto.object;
+        }
+      }
+    );
+  }
+
+
+
+  create() {
+    this.service.create(this.matiereCreate).subscribe(
       responseDto => {
         if (!responseDto.error) {
           this.messageValidation = responseDto.message;

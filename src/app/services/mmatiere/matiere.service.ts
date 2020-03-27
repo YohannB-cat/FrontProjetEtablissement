@@ -32,7 +32,7 @@ export class MatiereService {
     return this.http.post<ResponseDto>(this.URL + '/create', matiere);
   }
 
-  getOne(id :NumberConstructor) : Observable<ResponseDto> {
+  getOne(id : number) : Observable<ResponseDto> {
     return this.http.get<ResponseDto>(this.URL + '/' + id);
   }
 
