@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Liste des étudiants :</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Numéro identité</th>
+                <th>Téléphone</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Code Postal.</th>
+                <th>Sexe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of this.allEtudiant">
+                <td>{{e.identifiant}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.surname}}</td>
+                <td>{{e.mail}}</td>
+                <td>{{e.identity}}</td>
+                <td>{{e.phone}}</td>
+                <td>{{e.adress}}</td>
+                <td>{{e.city}}</td>
+                <td>{{e.postalCode}}</td>
+                <td>{{e.s}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="this.delete(e.identifiant)">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
