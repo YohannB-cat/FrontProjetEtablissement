@@ -1,4 +1,31 @@
 <div class="container">
+    <div id="search-matiere" >
+        <br>
+        <h2><label for="search-box" >Recherche par ID</label></h2>
+
+        <input #searchBox id="search-box" (input)="getOne(searchBox.value)" style="margin-right: 1%;" placeholder="Tapez l'ID ici .."/>
+        <button type="button" class="btn btn-info">Chercher</button>
+
+    </div>
+
+    <div id="add-matiere">
+        <br>
+        <h2><label>Ajouter matiere</label></h2>
+        ID : <input placeholder="Tapez l'ID ici' .." [(ngModel)]="this.matiereCreate.id"  style="margin-right: 3%;"/>
+        Nom : <input placeholder="Tapez le nom ici .." [(ngModel)]="this.matiereCreate.nom" style="margin-right: 1%;"/>
+        <input type="button" value="Ajouter" class="btn btn-info" (click)="this.create()"/>
+        <br>
+       Nom matiere :  {{this.matiereCreate.nom}}
+       <br>
+    </div>
+
+    <div *ngIf="!this.matiereById" id="result-search">
+        ID : <h2>{{this.matiereById.id}}</h2>
+        Nom : <h2>{{this.matiereById.nom | uppercase}}</h2>
+    </div>
+</div>
+
+<div class="container">
     <h2>Liste des matières :</h2>
     <table class="table table-hover">
         <thead>
