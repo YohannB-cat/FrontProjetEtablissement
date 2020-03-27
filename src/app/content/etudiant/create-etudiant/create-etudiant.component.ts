@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EtudiantCreateDto } from 'src/app/models/etudiant-dto';
+import { EtudiantDto } from 'src/app/models/etudiant-dto';
 import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
 })
 export class CreateEtudiantComponent implements OnInit {
 
-  etudiant = new EtudiantCreateDto();
+  etudiant = new EtudiantDto();
   messageValidation = '';
 
   constructor(private service: EtudiantsService) { }

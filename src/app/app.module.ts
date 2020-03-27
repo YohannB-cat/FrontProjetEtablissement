@@ -24,12 +24,9 @@ import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.
     AllEtudiantComponent,
     CreateEtudiantComponent,
     DashboardComponent,
-<<<<<<< HEAD
-    ExamenComponent
-=======
+    ExamenComponent,
     AllMatiereComponent,
-    MatiereDetailComponent
->>>>>>> 5f0fd770a527aa301470f460edb2346b92062b83
+    MatiereDetailComponent,
   ],
   imports: [
     BrowserModule,

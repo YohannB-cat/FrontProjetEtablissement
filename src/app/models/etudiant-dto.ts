@@ -1,11 +1,12 @@
-export class EtudiantCreateDto {
-    adress: string;
-    city: string;
-    identity: number;
-    mail: string;
-    name: string;
-    phone: number;
-    postalCode: number;
-    s: boolean;
-    surname: string;
+export class EtudiantDto {
+    adresse: string;
+    cni: number;
+    codePostale: number;
+    email: string;
+    enEtude: boolean;
+    nom: string;
+    prenom: string;
+    sexe: boolean;
+    telephone: number;
+    ville: string;
 }
