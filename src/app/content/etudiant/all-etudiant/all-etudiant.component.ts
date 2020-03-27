@@ -34,7 +34,6 @@ export class AllEtudiantComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.messageErreur='';
     this.service.delete(id).subscribe(
       responseDto => {
         console.log('debug responseDto : ', responseDto);
@@ -50,16 +49,19 @@ export class AllEtudiantComponent implements OnInit {
 
   search(id: number) {
     this.messageErreur='';
-    this.service.getId(id).subscribe(responseDto => {
+    this.service.getId(id).subscribe(
+      //SUCCESS
+      (responseDto) => {
       console.log('debug responseDto : ', responseDto);
       if (!responseDto.error) {
         this.etudiant = responseDto.object;
-      } else{
-        console.log('debug erreur responseDto : ', responseDto);
-        this.messageErreur= 'uvbjh';
-        // this.messageErreur= "Il n'y a pas d'étudiants avec l'identifiant "+id;
       }
       
+    },
+    //FAIL
+    (error) => {
+      console.log('debug error', error);
+      this.messageErreur= "Il n'y a pas d'étudiants avec l'identifiant "+id;
     }
     );
   }
