@@ -14,6 +14,11 @@ import { DashboardComponent } from './content/dashboard/dashboard.component';
 import { ExamenComponent } from './content/examen/examen.component';
 import { AllMatiereComponent } from './matiere/all-matiere/all-matiere.component';
 import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.component';
+import { ContentniveauComponent } from './app/contentniveau/contentniveau.component';
+import { AllNiveauComponent } from './content/niveau/all-niveau/all-niveau.component';
+import { CreateNiveauComponent } from './content/niveau/create-niveau/create-niveau.component';
+import { AllClasseComponent } from './content/classe/all-classe/all-classe.component';
+import { CreateClasseComponent } from './content/classe/create-classe/create-classe.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.
     ExamenComponent,
     AllMatiereComponent,
     MatiereDetailComponent,
+    ContentniveauComponent,
+    AllNiveauComponent,
+    CreateNiveauComponent,
+    AllClasseComponent,
+    CreateClasseComponent,
   ],
   imports: [
     BrowserModule,
