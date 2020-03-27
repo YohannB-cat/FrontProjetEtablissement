@@ -1,1 +1,28 @@
-<p>create-examen works!</p>
+<div>
+    <form class="col-lg-3 col-sm-6">
+        <div class="form-group">
+            <label for="Type">Type :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.examen.type" placeholder="Nom" name="nom" required>
+        </div>
+        <div class="form-group">
+            <label for="Date">Date :</label>
+            <input type="date" class="form-control" [(ngModel)]="this.examen.date" placeholder="Prénom" name="prenom" required>
+        </div>
+        <div class="form-group">
+            <label for="Coefficient">Coefficient:</label>
+            <input type="number" class="form-control" [(ngModel)]="this.examen.coefficient" placeholder="Enter email" name="email" required>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="this.save()">Soumettre</button>
+        <div *ngIf="this.messageValidation.length">
+            <div class="alert alert-fail" *ngIf="this.error">
+                {{this.messageValidation}}
+            </div>
+            <div class="alert alert-success" *ngIf="!this.error">
+                {{this.messageValidation}}
+            </div>
+        </div>
+
+    </form>
+
+</div>
