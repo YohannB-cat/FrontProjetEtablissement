@@ -1,4 +1,7 @@
 div {
     border: 1px solid black;
-    background-color: blue;
+    background-color: grey;
+    font-weight: bold;
+    font: large;
+    justify-content: center;
 }

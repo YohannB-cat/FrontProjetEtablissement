@@ -11,16 +11,16 @@ import { ExamenDto } from 'src/app/models/examen-dto';
 })
 export class ExamenService {
 
-  private URL = environment.baseUrl + 'examen';
+  private URL = environment.baseUrl + 'examen/';
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<ResponseDto> {
-    return this.http.get<ResponseDto>(this.URL + '/all');
+    return this.http.get<ResponseDto>(this.URL + 'all');
   }
 
   delete(id: number): Observable<ResponseDto> {
-    return this.http.delete<ResponseDto>(this.URL + '/id=' + id);
+    return this.http.delete<ResponseDto>(this.URL + 'id=' + id);
   }
 
   create(etudiant: ExamenDto): Observable<ResponseDto> {
@@ -30,10 +30,10 @@ export class ExamenService {
     return this.http.put<ResponseDto>(this.URL, etudiant);
   }
   getOne(id: number): Observable<ResponseDto> {
-    return this.http.get<ResponseDto>(this.URL + '/id=' + id);
+    return this.http.get<ResponseDto>(this.URL + 'id=' + id);
   }
   getMatiere(id: number): Observable<ResponseDto> {
-    return this.http.get<ResponseDto>(this.URL + '/matiere?id=' + id);
+    return this.http.get<ResponseDto>(this.URL + 'matiere?id=' + id);
   }
 
 }
