@@ -66,4 +66,8 @@ export class AllEtudiantComponent implements OnInit {
     );
   }
 
+  stockageEtudiant(etudiant: EtudiantCreateDto){
+    this.service.etudiant = etudiant;
+  }
+
 }

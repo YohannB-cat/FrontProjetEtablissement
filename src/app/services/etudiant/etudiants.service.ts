@@ -10,6 +10,8 @@ import { EtudiantCreateDto } from 'src/app/models/etudiant-create-dto';
   providedIn: 'root'
 })
 export class EtudiantsService {
+  
+  etudiant : EtudiantCreateDto;
 
   private URL = environment.baseUrl + 'etudiant';
 

@@ -1,0 +1,68 @@
+<div>
+    <form class="col-lg-3 col-sm-6">
+        <div class="form-group">
+            <label for="id">Id :</label>
+            <div  name="id">{{this.etudiant.id}} </div>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.etudiant.nom"  name="nom" required=true>
+            
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.etudiant.prenom" value="Prénom" name="prenom" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" [(ngModel)]="this.etudiant.email" value="Enter email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.etudiant.adresse"  name="adresse" required=true>
+            
+        </div>
+        <div class="form-group">
+            <label for="ville">ville :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.etudiant.ville"  name="ville" required=true>
+            
+        </div>
+        
+        <div class="form-group">
+            <label for="codePostal">Code Postal :</label>
+            <input type="number" class="form-control" [(ngModel)]="this.etudiant.codePostal" value="Votre num de carte d'identité" name="codePostal" required>
+        </div>
+        <div class="form-group">
+            <label for="cin">CIN</label>
+            <input type="number" class="form-control" [(ngModel)]="this.etudiant.cni" name="cin" required>
+        </div>
+        <div class="form-group">
+            <label for="telephone">Telephone :</label>
+            <input type="number" class="form-control" [(ngModel)]="this.etudiant.telephone" name="telephone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sel1">Sexe :</label>
+            <select class="form-control" id="sel1" [(ngModel)]="this.etudiant.sexe" name="sexe">
+              <option class="selected" value=true>F</option>
+              <option value=false>M</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="enEtude">En étude :</label>
+            <select class="form-control" id="enEtude" [(ngModel)]="this.etudiant.enEtude" name="enEtude">
+              <option class="selected" value=true>Oui</option>
+              <option value=false>Non</option>
+            </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="this.update()">Modifier</button>
+
+        <div class="alert alert-success" *ngIf="messageValidation.length">
+            <strong>Success!</strong> {{this.messageValidation}}
+        </div>
+
+    </form>
+
+</div>
