@@ -1,10 +1,68 @@
+<a routerLink='/etudiant/add'>Création</a>
 <div class="container">
     <div id="search-component">
         <br>
         <h2><label for="search-box">Recherche par ID</label></h2>
 
-        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-        <button type="button" class="btn btn-info">Chercher</button>
+        <input type="number" #searchBox id="search-box" />
+        <button type="button" class="btn btn-info" (click)="this.search(searchBox.value)">Chercher</button>
+
+        <div *ngIf="etudiant">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Numéro identité</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Ville</th>
+                        <th>Code Postal</th>
+                        <th>Sexe</th>
+                        <th>En Etude</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{etudiant.nom}}</td>
+                        <td>{{etudiant.prenom}}</td>
+                        <td>{{etudiant.email}}</td>
+                        <td>{{etudiant.cni}}</td>
+                        <td>{{etudiant.telephone}}</td>
+                        <td>{{etudiant.adresse}}</td>
+                        <td>{{etudiant.ville}}</td>
+                        <td>{{etudiant.codePostal}}</td>
+                        <td>
+                            <div *ngIf="!etudiant.sexe">
+                                Femme
+                            </div>
+                            <div *ngIf="etudiant.sexe">
+                                Homme
+                            </div>
+                        </td>
+                        <td>
+                            <div *ngIf="etudiant.enEtude">
+                                Oui
+                            </div>
+                            <div *ngIf="!etudiant.enEtude">
+                                Non
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="this.messageErreur.length">
+            {{this.messageErreur}}
+        </div>
+
+
     </div>
 
     <h2>Liste des étudiants :</h2>
@@ -19,23 +77,39 @@
                 <th>Téléphone</th>
                 <th>Adresse</th>
                 <th>Ville</th>
-                <th>Code Postal.</th>
+                <th>Code Postal</th>
                 <th>Sexe</th>
+                <th>En Etude</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let e of this.allEtudiant">
-                <td>{{e.identifiant}}</td>
-                <td>{{e.name}}</td>
-                <td>{{e.surname}}</td>
-                <td>{{e.mail}}</td>
-                <td>{{e.identity}}</td>
-                <td>{{e.phone}}</td>
-                <td>{{e.adress}}</td>
-                <td>{{e.city}}</td>
-                <td>{{e.postalCode}}</td>
-                <td>{{e.s}}</td>
+                <td>{{e.id}}</td>
+                <td>{{e.nom}}</td>
+                <td>{{e.prenom}}</td>
+                <td>{{e.email}}</td>
+                <td>{{e.cni}}</td>
+                <td>{{e.telephone}}</td>
+                <td>{{e.adresse}}</td>
+                <td>{{e.ville}}</td>
+                <td>{{e.codePostal}}</td>
+                <td>
+                    <div *ngIf="e.sexe">
+                        Femme
+                    </div>
+                    <div *ngIf="!e.sexe">
+                        Homme
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="enEtude">
+                        Oui
+                    </div>
+                    <div *ngIf="!enEtude">
+                        Non
+                    </div>
+                </td>
                 <td>
                     <button class="btn btn-danger" (click)="this.delete(e.identifiant)">Supprimer</button>
                 </td>

@@ -5,6 +5,9 @@ import { AllEtudiantComponent } from './content/etudiant/all-etudiant/all-etudia
 import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/create-etudiant.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
+import { AllExamenComponent } from './content/examen/all-examen/all-examen.component';
+import { CreateExamenComponent } from './content/examen/create-examen/create-examen.component';
+import { DetailedExamenComponent } from './content/examen/detailed-examen/detailed-examen.component';
 import { AllMatiereComponent } from './content/matiere/all-matiere/all-matiere.component';
 import { MatiereDetailComponent } from './content/matiere/matiere-detail/matiere-detail.component';
 import { AllModuleComponent } from './content/module/all-module/all-module.component';
@@ -19,7 +22,9 @@ const routes: Routes = [
   { path: 'matiere', component: AllMatiereComponent },
   { path: 'etudiant', component: AllEtudiantComponent },
   { path: 'etudiant/add', component: CreateEtudiantComponent },
-  { path: 'examen', component: AppComponent },
+  { path: 'examen', component:AllExamenComponent},
+  { path: 'examen/add', component:CreateExamenComponent},
+  { path: 'examen/detail', component:DetailedExamenComponent},
   { path: 'note', component: AppComponent },
   { path: 'matiere/detail', component: MatiereDetailComponent },
   { path: 'module/detail', component : DetailModuleComponent}
