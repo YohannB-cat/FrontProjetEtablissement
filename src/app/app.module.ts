@@ -11,7 +11,9 @@ import { AllEtudiantComponent } from './content/etudiant/all-etudiant/all-etudia
 import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/create-etudiant.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
-import { ExamenComponent } from './content/examen/examen.component';
+import { AllExamenComponent } from './content/examen/all-examen/all-examen.component';
+import { CreateExamenComponent } from './content/examen/create-examen/create-examen.component';
+import { DetailedExamenComponent } from './content/examen/detailed-examen/detailed-examen.component';
 import { AllNiveauComponent } from './content/niveau/all-niveau/all-niveau.component';
 import { CreateNiveauComponent } from './content/niveau/create-niveau/create-niveau.component';
 import { AllClasseComponent } from './content/classe/all-classe/all-classe.component';
@@ -31,9 +33,11 @@ import { UpdateComponent } from './content/etudiant/update/update.component';
     AllEtudiantComponent,
     CreateEtudiantComponent,
     DashboardComponent,
-    ExamenComponent,
     AllMatiereComponent,
     MatiereDetailComponent,
+    AllExamenComponent,
+    CreateExamenComponent,
+    DetailedExamenComponent,
     AllNiveauComponent,
     CreateNiveauComponent,
     AllClasseComponent,
