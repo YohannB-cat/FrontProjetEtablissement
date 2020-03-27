@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -12,13 +12,14 @@ import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/crea
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
 import { ExamenComponent } from './content/examen/examen.component';
-import { AllMatiereComponent } from './matiere/all-matiere/all-matiere.component';
-import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.component';
-import { ContentniveauComponent } from './app/contentniveau/contentniveau.component';
 import { AllNiveauComponent } from './content/niveau/all-niveau/all-niveau.component';
 import { CreateNiveauComponent } from './content/niveau/create-niveau/create-niveau.component';
 import { AllClasseComponent } from './content/classe/all-classe/all-classe.component';
 import { CreateClasseComponent } from './content/classe/create-classe/create-classe.component';
+import { AllMatiereComponent } from './content/matiere/all-matiere/all-matiere.component';
+import { MatiereDetailComponent } from './content/matiere/matiere-detail/matiere-detail.component';
+import { AllModuleComponent } from './content/module/all-module/all-module.component';
+import { DetailModuleComponent } from './content/module/detail-module/detail-module.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,12 @@ import { CreateClasseComponent } from './content/classe/create-classe/create-cla
     ExamenComponent,
     AllMatiereComponent,
     MatiereDetailComponent,
-    ContentniveauComponent,
     AllNiveauComponent,
     CreateNiveauComponent,
     AllClasseComponent,
     CreateClasseComponent,
+    AllModuleComponent,
+    DetailModuleComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,4 +51,5 @@ import { CreateClasseComponent } from './content/classe/create-classe/create-cla
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
