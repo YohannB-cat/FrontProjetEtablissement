@@ -36,8 +36,9 @@ export class MatiereService {
     return this.http.get<ResponseDto>(this.URL + '/' + id);
   }
 
-  update() : Observable<ResponseDto> {
-    return this.http.put<ResponseDto>(this.URL + '/update');
+  update(matiere : MatiereCreateDto) : Observable<ResponseDto> {
+    return this.http.put<ResponseDto>(this.URL + '/update',matiere);
+
   }
 
   findMatieresByModule(id_module : Module) : Observable<ResponseDto> {
