@@ -12,6 +12,8 @@ import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/crea
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
 import { ExamenComponent } from './content/examen/examen.component';
+import { AllMatiereComponent } from './matiere/all-matiere/all-matiere.component';
+import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,12 @@ import { ExamenComponent } from './content/examen/examen.component';
     AllEtudiantComponent,
     CreateEtudiantComponent,
     DashboardComponent,
+<<<<<<< HEAD
     ExamenComponent
+=======
+    AllMatiereComponent,
+    MatiereDetailComponent
+>>>>>>> 5f0fd770a527aa301470f460edb2346b92062b83
   ],
   imports: [
     BrowserModule,

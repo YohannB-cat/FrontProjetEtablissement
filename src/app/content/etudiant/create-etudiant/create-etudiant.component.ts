@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EtudiantCreateDto } from 'src/app/models/etudiant-create-dto';
+import { EtudiantCreateDto } from 'src/app/models/etudiant-dto';
 import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
 
 @Component({

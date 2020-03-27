@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EtudiantUpdateDto } from 'src/app/models/etudiant-update-dto';
+import { EtudiantUpdateDto } from 'src/app/models/etudiant-create-dto';
 import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class AllEtudiantComponent implements OnInit {
       (responseDto) => {
         console.log('debug responseDto : ', responseDto);
         if (!responseDto.error) {
-          this.allEtudiant = responseDto.body;
+          this.allEtudiant = responseDto.object;
         }
       }
     );

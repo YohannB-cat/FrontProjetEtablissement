@@ -1,13 +1,5 @@
-import { SexeEnum } from '../enums/sexe-enum.enum';
+import { EtudiantCreateDto } from './etudiant-dto';
 
-export class EtudiantCreateDto {
-    adress: string;
-    city: string;
-    identity: number;
-    mail: string;
-    name: string;
-    phone: number;
-    postalCode: number;
-    s: SexeEnum;
-    surname: string;
+export class EtudiantUpdateDto extends EtudiantCreateDto{
+    identifiant: number;
 }
