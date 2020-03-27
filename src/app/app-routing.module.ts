@@ -5,8 +5,14 @@ import { AllEtudiantComponent } from './content/etudiant/all-etudiant/all-etudia
 import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/create-etudiant.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
+import { AllExamenComponent } from './content/examen/all-examen/all-examen.component';
+import { CreateExamenComponent } from './content/examen/create-examen/create-examen.component';
+import { DetailedExamenComponent } from './content/examen/detailed-examen/detailed-examen.component';
 
 const routes: Routes = [
+  {path: 'examen', component:AllExamenComponent},
+  {path: 'examen/add', component:CreateExamenComponent},
+  {path: 'examen/detail', component:DetailedExamenComponent},
   { path: 'etudiant', component: AllEtudiantComponent },
   { path: 'etudiant/add', component: CreateEtudiantComponent },
   { path: '', component: DashboardComponent }

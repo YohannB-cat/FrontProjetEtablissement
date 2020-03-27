@@ -11,9 +11,11 @@ import { AllEtudiantComponent } from './content/etudiant/all-etudiant/all-etudia
 import { CreateEtudiantComponent } from './content/etudiant/create-etudiant/create-etudiant.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './content/dashboard/dashboard.component';
-import { ExamenComponent } from './content/examen/examen.component';
 import { AllMatiereComponent } from './matiere/all-matiere/all-matiere.component';
 import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.component';
+import { AllExamenComponent } from './content/examen/all-examen/all-examen.component';
+import { CreateExamenComponent } from './content/examen/create-examen/create-examen.component';
+import { DetailedExamenComponent } from './content/examen/detailed-examen/detailed-examen.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import { MatiereDetailComponent } from './matiere/matiere-detail/matiere-detail.
     AllEtudiantComponent,
     CreateEtudiantComponent,
     DashboardComponent,
-    ExamenComponent,
     AllMatiereComponent,
-    MatiereDetailComponent
+    MatiereDetailComponent,
+    AllExamenComponent,
+    CreateExamenComponent,
+    DetailedExamenComponent,
   ],
   imports: [
     BrowserModule,
