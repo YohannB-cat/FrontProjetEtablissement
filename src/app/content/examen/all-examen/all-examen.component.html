@@ -1,5 +1,14 @@
 <div class="container">
-    <h2>Liste des étudiants :</h2>
+    <h2><label for="search-box">Recherche par ID</label></h2>
+
+    <input type="number" #searchBox id="search-box" />
+    <button type="button" class="btn btn-info" (click)="this.getOne(searchBox.value)">Chercher</button>
+
+    <h2>Liste des examens :</h2>
+    <a routerLink="/examen/add">
+        <input type="button" value="Ajouter un examen" class="btn btn-info"/>
+    </a>
+    
     <table class="table table-hover">
         <thead>
             <tr>
