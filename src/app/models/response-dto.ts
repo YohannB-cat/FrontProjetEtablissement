@@ -1,5 +1,5 @@
 export class ResponseDto {
-    body?: any;
+    object?: any;
     message: string;
     error: boolean;
 }
