@@ -19,31 +19,28 @@ export class MatiereService {
 
 
   
+  getOne(id : number) : Observable<ResponseDto> {
+    return this.http.get<ResponseDto>(this.URL + '/' + id);
+  }
 
   getAll(): Observable<ResponseDto> {
     return this.http.get<ResponseDto>(this.URL + '/all');
-  }
-
-  delete(id: number): Observable<ResponseDto> {
-    return this.http.delete<ResponseDto>(this.URL + '?id=' + id);
   }
 
   create(matiere: MatiereCreateDto): Observable<ResponseDto> {
     return this.http.post<ResponseDto>(this.URL + '/create', matiere);
   }
 
-  getOne(id : number) : Observable<ResponseDto> {
-    return this.http.get<ResponseDto>(this.URL + '/' + id);
-  }
-
   update(matiere : MatiereCreateDto) : Observable<ResponseDto> {
     return this.http.put<ResponseDto>(this.URL + '/update',matiere);
-
   }
 
   findMatieresByModule(id_module : Module) : Observable<ResponseDto> {
     return this.http.get<ResponseDto>(this.URL + '/bymodule/'+ id_module);
   }
 
+  delete(id: number): Observable<ResponseDto> {
+    return this.http.delete<ResponseDto>(this.URL + '/' + id);
+  }
 
 }

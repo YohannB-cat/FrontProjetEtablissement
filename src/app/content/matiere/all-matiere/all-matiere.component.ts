@@ -12,8 +12,8 @@ import { MatiereService } from 'src/app/services/mmatiere/matiere.service';
 export class AllMatiereComponent implements OnInit {
 
   allMatieres = new Array<MatiereCreateDto>();
-  messageValidation ='';
-  messageEchec='';
+  messageValidation: string;
+  messageEchec: string;
   matiereById = new MatiereCreateDto();
   matiereCreate = new MatiereCreateDto();
 
@@ -34,10 +34,10 @@ export class AllMatiereComponent implements OnInit {
     );
   }
 
-  getOne(id : number) {
+  getOne(id: number) {
     this.service.getOne(id).subscribe(
       responseDto => {
-        if(!responseDto.error) {
+        if (!responseDto.error) {
           this.matiereById = responseDto.object;
         }
       }
@@ -50,9 +50,9 @@ export class AllMatiereComponent implements OnInit {
     this.service.create(this.matiereCreate).subscribe(
       responseDto => {
         if (!responseDto.error) {
-          this.messageValidation = responseDto.message;
+          this.messageValidation = 'Vous venez d\'ajouter une matirèe ! Recharger la page pour voir la liste à jour.';
         }
-        else { this.messageEchec = responseDto.message; }
+        else { this.messageEchec = 'Il y a un problème de saisi ! Veuillez recomencer'; }
       }
     )
   }
@@ -61,13 +61,13 @@ export class AllMatiereComponent implements OnInit {
 
   delete(id: number) {
     this.service.delete(id).subscribe(
-     (responseDto) => {
-      if (!responseDto.error) {
-        this.allMatieres = this.allMatieres.filter(
-          e => e.id !== id
-        );
-      }
-     });
+      (responseDto) => {
+        if (!responseDto.error) {
+          this.allMatieres = this.allMatieres.filter(
+            e => e.id !== id
+          );
+        }
+      });
   }
 
 }

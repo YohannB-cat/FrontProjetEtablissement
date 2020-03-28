@@ -9,7 +9,8 @@ import { MatiereService } from 'src/app/services/mmatiere/matiere.service';
 })
 export class MatiereDetailComponent implements OnInit {
 
-  matiere = new MatiereCreateDto;
+  matiereSelected = new MatiereCreateDto();
+  essai ='nouveau nom ici'
   messageValidation = '';
   messageEchec = '';
 
@@ -18,8 +19,8 @@ export class MatiereDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  update(matiere : MatiereCreateDto) :  void {
-    this.service.update(matiere).subscribe(
+  update() :  void {
+    this.service.update(this.matiereSelected).subscribe(
       responseDto => {
         if (!responseDto.error) {
           this.messageValidation = responseDto.message;

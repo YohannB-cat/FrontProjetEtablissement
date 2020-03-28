@@ -1,50 +1,93 @@
 <div class="container">
-    <div id="search-matiere" >
-        <br>
-        <h2><label for="search-box" >Recherche par ID</label></h2>
+    <div class="row">
+        <!--BLOC FIND BY ID-->
+        <div id="search-matiere" class="clo-lg-6">
+            <br>
+            <h2><label for="search-box">Recherche par ID</label></h2>
 
-        <input #searchBox id="search-box" (input)="getOne(searchBox.value)" style="margin-right: 1%;" placeholder="Tapez l'ID ici .."/>
-        <button type="button" class="btn btn-info">Chercher</button>
+            <input #searchBox id="search-box" (input)="getOne(searchBox.value)" placeholder="Tapez l'ID ici .." />
+            <button type="button" class="btn btn-info" >Chercher</button>
+            <br>
+        </div>
 
+        <!--BLOC CREATION MATIERE-->
+        <div id="add-matiere" class="clo-lg-6" style="margin-left: 10%;">
+            <br>
+            <h2><label>Ajouter matiere</label></h2>
+            ID : <input placeholder="Tapez l'ID ici' .." [(ngModel)]="this.matiereCreate.id" />
+            Nom : <input placeholder="Tapez le nom ici .." [(ngModel)]="this.matiereCreate.nom"/>
+            <input type="button" value="Ajouter" class="btn btn-info" (click)="this.create()" />
+            <br>
+
+            <!-- MESAGE D'ECHEC OU VALIDATION POUR CREATION-->
+            <div class="alert alert-success" *ngIf="this.messageValidation">
+                <strong>Success!</strong> {{this.messageValidation}}
+            </div>
+            <div class="alert alert-danger" *ngIf="this.messageEchec">
+                <strong>Warning!</strong> {{this.messageEchec}}
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <!--ELEMENT RECHERCHE FIND BY ID-->
+        <div *ngIf="!this.matiereById" id="result-search">
+            <h2>La matière recherchée est :</h2>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Supprimer matière</th>
+                        <th>Modifier matière</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{matiereById.id}}</td>
+                        <td>{{matiereById.nom}}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="this.delete(matiereById.id)">Supprimer</button>
+                        </td>
+                        <td>
+                            <a routerLink="/matiere/detail">
+                                <button class="btn btn-info">Modifier</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div id="add-matiere">
-        <br>
-        <h2><label>Ajouter matiere</label></h2>
-        ID : <input placeholder="Tapez l'ID ici' .." [(ngModel)]="this.matiereCreate.id"  style="margin-right: 3%;"/>
-        Nom : <input placeholder="Tapez le nom ici .." [(ngModel)]="this.matiereCreate.nom" style="margin-right: 1%;"/>
-        <input type="button" value="Ajouter" class="btn btn-info" (click)="this.create()"/>
-        <br>
-       Nom matiere :  {{this.matiereCreate.nom}}
-       <br>
-    </div>
+    <hr style="color: blue;width: 50%;height: 10px;">
 
-    <div *ngIf="!this.matiereById" id="result-search">
-        ID : <h2>{{this.matiereById.id}}</h2>
-        Nom : <h2>{{this.matiereById.nom | uppercase}}</h2>
+    <!--LISTE DES MATIERES-->
+    <div class="row">
+        <h2>Liste des matières :</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Supprimer matière</th>
+                    <th>Modifier matière</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of this.allMatieres">
+                    <td>{{e.id}}</td>
+                    <td>{{e.nom}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
+                    </td>
+                    <td>
+                        <a routerLink="/matiere/detail">
+                            <button class="btn btn-info">Modifier</button>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>
-
-<div class="container">
-    <h2>Liste des matières :</h2>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let e of this.allMatieres">
-                <td>{{e.id}}</td>
-                <td>{{e.nom}}</td>
-                <td>
-                    <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
-                </td>
-                <td>
-                    <button class="btn btn-info" routerLink="/matiere/detail">Modifier</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
