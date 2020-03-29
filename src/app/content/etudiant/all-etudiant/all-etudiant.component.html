@@ -38,10 +38,10 @@
                         <td>{{etudiant.ville}}</td>
                         <td>{{etudiant.codePostal}}</td>
                         <td>
-                            <div *ngIf="!etudiant.sexe">
+                            <div *ngIf="etudiant.sexe">
                                 Femme
                             </div>
-                            <div *ngIf="etudiant.sexe">
+                            <div *ngIf="!etudiant.sexe">
                                 Homme
                             </div>
                         </td>
@@ -54,7 +54,7 @@
                             </div>
                         </td>
                         <td>
-                            <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
+                            <button class="btn btn-danger" (click)="this.delete(etudiant.id)">Supprimer</button>
                         </td>
                     </tr>
                 </tbody>
@@ -114,7 +114,7 @@
                     </div>
                 </td>
                 <td>
-                    <button class="btn btn-danger" (click)="this.delete(e.identifiant)">Supprimer</button>
+                    <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
                 </td>
                 <td>
                     <a routerLink='/etudiant/update/'> <button class="btn btn-dark"

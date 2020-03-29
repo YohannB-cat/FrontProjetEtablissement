@@ -1,7 +1,7 @@
 export class EtudiantDto {
     adresse: string;
     cni: number;
-    codePostale: number;
+    codePostal: number;
     email: string;
     enEtude: boolean;
     nom: string;

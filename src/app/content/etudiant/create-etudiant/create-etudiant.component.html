@@ -27,7 +27,7 @@
 
         <button type="button" class="btn btn-primary" (click)="this.save()">Submit</button>
 
-        <div class="alert alert-success" *ngIf="messageValidationlength">
+        <div class="alert alert-success" *ngIf="messageValidation.length">
             <strong>Success!</strong> {{this.messageValidation}}
         </div>
 

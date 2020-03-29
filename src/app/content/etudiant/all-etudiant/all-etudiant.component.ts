@@ -33,7 +33,10 @@ export class AllEtudiantComponent implements OnInit {
     );
   }
 
-  delete(id: number) {
+  delete(id : number) {
+    console.log("DEBUG id = " +id);
+    console.log("DEBUG id = " +id.valueOf);
+
     this.service.delete(id).subscribe(
       responseDto => {
         console.log('debug responseDto : ', responseDto);
@@ -41,6 +44,7 @@ export class AllEtudiantComponent implements OnInit {
           this.allEtudiant = this.allEtudiant.filter(
             element => element.id !== id
           );
+          this.etudiant=null;
         }
         console.log('result after delete: ', this.allEtudiant);
       }
@@ -48,6 +52,7 @@ export class AllEtudiantComponent implements OnInit {
   }
 
   search(id: number) {
+    this.etudiant=null;
     this.messageErreur='';
     this.service.getId(id).subscribe(
       //SUCCESS
