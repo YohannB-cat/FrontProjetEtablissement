@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AbsenceCreateDto } from 'src/app/models/absence-create-dto';
+import { AbsencesService } from 'src/app/services/absence/absences.service';
 
 @Component({
   selector: 'app-create-absence',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAbsenceComponent implements OnInit {
 
-  constructor() { }
+  absence= new AbsenceCreateDto();
+
+  messageValidation= '';
+  
+  constructor(private service: AbsencesService) { }
 
   ngOnInit() {
+  }
+
+  save() {
+    this.service.create(this.absence).subscribe(
+      (responseDto) => {
+        console.log('debug responseDto : ', responseDto);
+        if (!responseDto.error) {
+          this.messageValidation = responseDto.message;
+        }
+      }
+    );
   }
 
 }

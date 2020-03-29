@@ -13,6 +13,9 @@ import { MatiereDetailComponent } from './content/matiere/matiere-detail/matiere
 import { AllModuleComponent } from './content/module/all-module/all-module.component';
 import { DetailModuleComponent } from './content/module/detail-module/detail-module.component';
 import { UpdateComponent } from './content/etudiant/update/update.component';
+import { AllAbsenceComponent } from './content/absence/all-absence/all-absence.component';
+import { CreateAbsenceComponent } from './content/absence/create-absence/create-absence.component';
+import { UpdateAbsenceComponent } from './content/absence/update-absence/update-absence.component';
 
 const routes: Routes = [
   
@@ -30,7 +33,10 @@ const routes: Routes = [
   { path: 'examen/detail', component:DetailedExamenComponent},
   { path: 'note', component: AppComponent },
   { path: 'matiere/detail', component: MatiereDetailComponent },
-  { path: 'module/detail', component : DetailModuleComponent}
+  { path: 'module/detail', component : DetailModuleComponent},
+  { path: 'absence', component: AllAbsenceComponent },
+  { path: 'absence/add', component: CreateAbsenceComponent },
+  { path: 'absence/update', component : UpdateAbsenceComponent}
   
 ];
 

@@ -1,1 +1,77 @@
-<p>all-absence works!</p>
+
+<div class="container">
+    <br>
+    <a routerLink='/absence/add'><button class="btn btn-success">Créer absence</button></a>
+
+    <div id="search-component">
+        <br>
+        <h2><label for="search-box">Recherche absence par ID</label></h2>
+
+        <input type="number" #searchBox id="search-box" />
+        <button type="button" class="btn btn-info" (click)="this.search(searchBox.value)">Chercher absence</button>
+
+        <div *ngIf="absence">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Date début</th>
+                        <th>Date fin</th>
+                        <th>Justification</th>
+                        <th>Description</th>
+                        <th>Etudiant absent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{absence.debut}}</td>
+                        <td>{{absence.fin}}</td>
+                        <td>{{absence.justification}}</td>
+                        <td>{{absence.description}}</td>
+                        <td>{{absence.etudiant.nom}}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="this.delete(a.id)">Supprimer absence</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="this.messageErreur.length">
+            {{this.messageErreur}}
+        </div>
+
+
+    </div>
+
+    <h2>Liste des absences :</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Justification</th>
+                <th>Description</th>
+                <th>Etudiant absent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of this.allAbsence">
+                <td>{{a.id}}</td>
+                <td>{{a.debut}}</td>
+                <td>{{a.fin}}</td>
+                <td>{{a.justification}}</td>
+                <td>{{a.description}}</td>
+                <td>{{a.etudiant.nom}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="this.delete(a.id)">Supprimer</button>
+                </td>
+                <td>
+                    <a routerLink='/absence/update/'> <button class="btn btn-dark"
+                            (click)="this.stockageAbsence(a)">Modifier</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,10 +1,6 @@
 import { Etudiant } from './etudiant';
+import { AbsenceDto } from './absence-dto';
 
-export class Absence {
+export class Absence extends AbsenceDto {
     id: number;
-    debut: string;
-    fin: string;
-    description: string;
-    justification: string;
-    etudiant: Etudiant;
 }

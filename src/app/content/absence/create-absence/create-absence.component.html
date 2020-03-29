@@ -1,1 +1,28 @@
-<p>create-absence works!</p>
+<div>
+    <form class="col-lg-3 col-sm-6">
+        <div class="form-group">
+            <label for="debut">Date début (YYYY-MM-DD) :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.absence.debut" placeholder="Date début ex 2020-02-20" name="debut" required>
+        </div>
+        <div class="form-group">
+            <label for="fin">Date fin (YYYY-MM-DD) :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.absence.fin" placeholder="Date fin ex 2020-02-20" name="fin" required>
+        </div>
+        <div class="form-group">
+            <label for="justification">Justification :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.absence.justification" placeholder="justification" name="justification" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.absence.description" placeholder="description" name="description" required>
+        </div>
+            
+        <button type="button" class="btn btn-primary" (click)="this.save()">Submit</button>
+
+        <div class="alert alert-success" *ngIf="messageValidationlength">
+            <strong>Success!</strong> {{this.messageValidation}}
+        </div>
+
+    </form>
+
+</div>
