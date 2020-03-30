@@ -1,1 +1,17 @@
-<p>create-classe works!</p>
+<div>
+    <form [formGroup]="classeForm" class="col-lg-3 col-sm-6">
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" [(ngModel)]="this.class.nom" placeholder="Nom" name="nom" required>
+            <div *ngIf="nom.errors.requiered && (nom.touched || nom.dirty)">Un nom est requis</div>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="this.save()">Submit</button>
+
+        <div class="alert alert-success" *ngIf="messageValidation.length">
+            <strong>Success!</strong> {{this.messageValidation}}
+        </div>
+
+    </form>
+
+</div>

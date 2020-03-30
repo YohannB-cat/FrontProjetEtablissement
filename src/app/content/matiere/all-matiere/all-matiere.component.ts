@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatiereCreateDto } from 'src/app/models/matiere-create-dto';
 import { MatiereService } from 'src/app/services/mmatiere/matiere.service';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 
@@ -17,11 +18,29 @@ export class AllMatiereComponent implements OnInit {
   matiereById = new MatiereCreateDto();
   matiereCreate = new MatiereCreateDto();
 
+  getIdForm: FormGroup;
+
+  addForm: FormGroup;
+
   constructor(private service: MatiereService) { }
 
   ngOnInit(): void {
     this.getAll();
+    this.getIdForm = new FormGroup({
+      'idSearch': new FormControl(this.matiereById.id, Validators.required)
+    });
+
+    this.addForm = new FormGroup({
+      'id': new FormControl(this.matiereCreate.id, Validators.required,),
+      'nom': new FormControl(this.matiereCreate.nom, Validators.required)
+    })
   }
+
+
+  get idSearch() { return this.getIdForm.get('id'); }
+
+  get id() { return this.addForm.get('id'); }
+  get nom() { return this.addForm.get('nom'); }
 
   getAll() {
     this.service.getAll().subscribe(

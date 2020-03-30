@@ -9,11 +9,7 @@ import { FormGroup,FormControl, Validators } from '@angular/forms';
   styleUrls: ['./create-examen.component.css']
 })
 export class CreateExamenComponent implements OnInit {
-  examenForm = new FormGroup({
-    type: new FormControl(''),
-    coefficient: new FormControl(''),
-    date: new FormControl(''),
-  });
+  examenForm:FormGroup;
 
   examen = new ExamenDto();
   messageValidation = '';
