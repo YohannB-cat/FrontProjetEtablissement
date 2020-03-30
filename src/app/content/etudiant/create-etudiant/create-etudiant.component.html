@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup]="etudiantForm" class="col-lg-3 col-sm-6">
+    <form [formGroup]="etudiantForm" class="col-lg-3 col-sm-6" (ngSubmit)="this.save()">
         <div class="form-group">
             <label for="nom">Nom :</label>
             <input id="nom" type="text" class="form-control" [(ngModel)]="this.etudiant.nom" formControlName="nom"
@@ -34,9 +34,9 @@
             <div *ngIf="sexe.errors?.required && (sexe.touched || sexe.dirty)">Un sexe est requis</div>
         </div>
         
-        <div [hidden]="!etudiantForm.valid">
-        <button type="submit"  class="btn btn-primary" (click)=this.save()>Submit</button>
-    </div>
+    
+        <button type="submit" class="btn btn-primary" [disabled]="!this.etudiantForm.valid">Submit</button>
+    
 
         <div class="alert alert-success" *ngIf="messageValidation.length">
             <strong>Success!</strong> {{this.messageValidation}}

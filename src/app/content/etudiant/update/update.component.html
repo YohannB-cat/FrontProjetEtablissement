@@ -1,63 +1,75 @@
 <div>
-    <form class="col-lg-3 col-sm-6">
+    <form class="col-lg-3 col-sm-6" [formGroup]="etudiantForm" (ngSubmit)="this.update()">
         <div class="form-group">
             <label for="id">Id :</label>
             <div  name="id">{{this.etudiant.id}} </div>
         </div>
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.nom"  name="nom" required=true>
+            <input formControlName="nom" type="text" class="form-control" [(ngModel)]="this.etudiant.nom"  name="nom" required=true>
+            <div *ngIf="nom.errors?.required && (nom.touched || nom.dirty)">Un nom est requis</div>
             
         </div>
         <div class="form-group">
             <label for="prenom">Prénom :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.prenom" value="Prénom" name="prenom" required>
+            <input formControlName="prenom" type="text" class="form-control" [(ngModel)]="this.etudiant.prenom" value="Prénom" name="prenom" required>
+            <div *ngIf="prenom.errors?.required && (prenom.touched || prenom.dirty)">Un prenom est requis</div>
         </div>
         <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" [(ngModel)]="this.etudiant.email" value="Enter email" name="email" required>
+            <input formControlName="email" type="email" class="form-control" [(ngModel)]="this.etudiant.email" value="Enter email" name="email" required>
+            <div *ngIf="email.errors?.required && (email.touched || email.dirty)">Un email est requis</div>
         </div>
         <div class="form-group">
             <label for="adresse">Adresse :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.adresse"  name="adresse" required=true>
+            <input formControlName="adresse" type="text" class="form-control" [(ngModel)]="this.etudiant.adresse"  name="adresse" required=true>
+            <div *ngIf="adresse.errors?.required && (adresse.touched || adresse.dirty)">Une adresse est requis</div>
             
         </div>
         <div class="form-group">
-            <label for="ville">ville :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.ville"  name="ville" required=true>
+            <label for="ville">Ville :</label>
+            <input formControlName="ville" type="text" class="form-control" [(ngModel)]="this.etudiant.ville"  name="ville" required=true>
+            <div *ngIf="ville.errors?.required && (ville.touched || ville.dirty)">Une ville est requis</div>
             
         </div>
         
         <div class="form-group">
             <label for="codePostal">Code Postal :</label>
-            <input type="number" class="form-control" [(ngModel)]="this.etudiant.codePostal" value="Votre num de carte d'identité" name="codePostal" required>
+            <input formControlName="codePostal" type="number" class="form-control" [(ngModel)]="this.etudiant.codePostal" value="Votre num de carte d'identité" name="codePostal" required>
+            <div *ngIf="codePostal.errors?.required && (codePostal.touched || codePostal.dirty)">Un code postal est requis</div>
+            <div *ngIf="etudiantForm.get('codePostal').hasError('min') && (codePostal.touched || codePostal.dirty)">Un code postal est au moins 10000</div>
+            <div *ngIf="etudiantForm.get('codePostal').hasError('max') && (codePostal.touched || codePostal.dirty)">Un code postal est au moins 99999</div>
         </div>
         <div class="form-group">
             <label for="cin">CIN</label>
-            <input type="number" class="form-control" [(ngModel)]="this.etudiant.cni" name="cin" required>
+            <input formControlName="cni" type="number" class="form-control" [(ngModel)]="this.etudiant.cni" name="cin" required>
+            <div *ngIf="cni.errors?.required && (cni.touched || cni.dirty)">Un cni est requis</div>
         </div>
         <div class="form-group">
-            <label for="telephone">Telephone :</label>
-            <input type="number" class="form-control" [(ngModel)]="this.etudiant.telephone" name="telephone" required>
+            <label for="tel">Telephone :</label>
+            <input formControlName="tel" type="number" class="form-control" [(ngModel)]="this.etudiant.telephone" name="tel" required>
+            <div *ngIf="tel.errors?.required && (tel.touched || tel.dirty)">Un téléphone est requis</div>
         </div>
 
         <div class="form-group">
             <label for="sel1">Sexe :</label>
-            <select class="form-control" id="sel1" [(ngModel)]="this.etudiant.sexe" name="sexe">
+            <select formControlName="sexe" class="form-control" id="sel1" [(ngModel)]="this.etudiant.sexe" name="sexe">
               <option class="selected" value=true>F</option>
               <option value=false>M</option>
             </select>
+            <div *ngIf="sexe.errors?.required && (sexe.touched || sexe.dirty)">Un sexe est requis</div>
         </div>
 
         <div class="form-group">
             <label for="enEtude">En étude :</label>
-            <select class="form-control" id="enEtude" [(ngModel)]="this.etudiant.enEtude" name="enEtude">
+            <select formControlName="enEtude" class="form-control" id="enEtude" [(ngModel)]="this.etudiant.enEtude" name="enEtude">
               <option class="selected" value=true>Oui</option>
               <option value=false>Non</option>
             </select>
+            <div *ngIf="enEtude.errors?.required && (enEtude.touched || enEtude.dirty)">Un status est requis</div>
         </div>
 
-        <button type="button" class="btn btn-primary" (click)="this.update()">Modifier</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!this.etudiantForm.valid">Modifier</button>
 
         <div class="alert alert-success" *ngIf="messageValidation.length">
             <strong>Success!</strong> {{this.messageValidation}}
