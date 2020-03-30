@@ -8,7 +8,6 @@ import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
   styleUrls: ['./create-etudiant.component.css']
 })
 export class CreateEtudiantComponent implements OnInit {
-
   etudiant = new EtudiantDto();
   messageValidation = '';
 
