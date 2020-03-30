@@ -1,28 +1,33 @@
 <div>
-    <form class="col-lg-3 col-sm-6">
+    <form [formGroup]="etudiantForm" class="col-lg-3 col-sm-6">
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.nom" placeholder="Nom" name="nom" required>
+            <input id="nom" type="text" class="form-control" [(ngModel)]="this.etudiant.nom" formControlName="nom" name="nom" required>
+            <div *ngIf="nom.errors.required && (nom.touched || nom.dirty)">Un nom est requis</div>
         </div>
         <div class="form-group">
             <label for="prenom">Prénom :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.prenom" placeholder="Prénom" name="prenom" required>
+            <input formControlName="prenom" type="text" class="form-control" [(ngModel)]="this.etudiant.prenom" placeholder="Prénom" name="prenom" required>
+            <div *ngIf="prenom.errors.required && (prenom.touched || prenom.dirty)">Un prenom est requis</div>
         </div>
         <div class="form-group">
             <label for="email">Email address:</label>
-            <input type="email" class="form-control" [(ngModel)]="this.etudiant.email" placeholder="Enter email" name="email" required>
+            <input formControlName="email" type="email" class="form-control" [(ngModel)]="this.etudiant.email" placeholder="Enter email" name="email" required>
+            <div *ngIf="email.errors.required && (email.touched || email.dirty)">Un email est requis</div>
         </div>
         <div class="form-group">
-            <label for="cin">CIN</label>
-            <input type="text" class="form-control" [(ngModel)]="this.etudiant.cni" placeholder="Votre num de carte d'identité" name="cin" required>
+            <label for="cni">CNI</label>
+            <input formControlName="cni" type="text" class="form-control" [(ngModel)]="this.etudiant.cni" placeholder="Votre num de carte d'identité" name="cni" required>
+            <div *ngIf="cni.errors.required && (cni.touched || cni.dirty)">Un cni est requis</div>
         </div>
 
         <div class="form-group">
             <label for="sel1">Sexe :</label>
-            <select class="form-control" id="sel1" [(ngModel)]="this.etudiant.sexe" name="sexe">
+            <select formControlName="sexe" class="form-control" id="sel1" [(ngModel)]="this.etudiant.sexe" name="sexe">
               <option class="selected" value=true>F</option>
               <option value=false>M</option>
             </select>
+            <div *ngIf="sexe.errors.required && (sexe.touched || sexe.dirty)">Un sexe est requis</div>
         </div>
 
         <button type="button" class="btn btn-primary" (click)="this.save()">Submit</button>
