@@ -5,12 +5,13 @@ import { ResponseDto } from "src/app/models/response-dto";
 import { environment } from "src/environments/environment";
 import { ClasseDto } from "src/app/models/classe-dto";
 import { ClasseCreateDto } from "src/app/models/classe-create-dto";
-import { Resolve } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClassesService {
+
+  classe : ClasseCreateDto;
 
   private URL = environment.baseUrl + 'classe';
 
