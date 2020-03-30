@@ -35,8 +35,6 @@ export class AllEtudiantComponent implements OnInit {
 
   delete(id : number) {
     console.log("DEBUG id = " +id);
-    console.log("DEBUG id = " +id.valueOf);
-
     this.service.delete(id).subscribe(
       responseDto => {
         console.log('debug responseDto : ', responseDto);

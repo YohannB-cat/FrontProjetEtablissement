@@ -39,12 +39,11 @@ export class AllAbsenceComponent implements OnInit {
     this.service.delete(id).subscribe(
       responseDto => {
         console.log('debug responseDto : ', responseDto);
-        if (!responseDto.error) {
           this.allAbsence = this.allAbsence.filter(
             element => element.id !== id
           );
           this.absence=null;
-        }
+        
         console.log('result after delete: ', this.allAbsence);
       }
     );
