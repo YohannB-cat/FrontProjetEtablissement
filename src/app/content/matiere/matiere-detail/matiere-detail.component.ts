@@ -11,7 +11,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class MatiereDetailComponent implements OnInit {
 
   matiereSelected = new MatiereCreateDto();
-  essai ='nouveau nom ici'
   messageValidation = null;
   messageEchec = null;
 
@@ -20,7 +19,7 @@ export class MatiereDetailComponent implements OnInit {
   constructor(private service : MatiereService) { }
 
   ngOnInit(): void {
-    this.service.matiere = this.matiereSelected;
+    this.matiereSelected = this.service.matiere ;
     this.updateForm = new FormGroup({
       'nom' : new FormControl(this.matiereSelected.nom, Validators.required)
     })
@@ -30,7 +29,6 @@ export class MatiereDetailComponent implements OnInit {
   get nom() { return this.updateForm.get('nom'); }
 
   update() :  void {
-
     this.service.update(this.matiereSelected).subscribe(
       responseDto => {
         if (!responseDto.error) {

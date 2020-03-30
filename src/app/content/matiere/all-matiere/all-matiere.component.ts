@@ -17,6 +17,7 @@ export class AllMatiereComponent implements OnInit {
   messageEchec: string;
   matiereById = null;
   matiereCreate = new MatiereCreateDto();
+  matiere = new MatiereCreateDto;
 
   addForm: FormGroup;
 
@@ -25,12 +26,11 @@ export class AllMatiereComponent implements OnInit {
   ngOnInit(): void {
     this.getAll();
     this.addForm = new FormGroup({
-      'id': new FormControl(this.matiereCreate.id, Validators.required,),
       'nom': new FormControl(this.matiereCreate.nom, Validators.required)
     })
   }
 
-  get id() { return this.addForm.get('id'); }
+
   get nom() { return this.addForm.get('nom'); }
 
   getAll() {
@@ -61,7 +61,7 @@ export class AllMatiereComponent implements OnInit {
     this.service.create(this.matiereCreate).subscribe(
       responseDto => {
         if (!responseDto.error) {
-          this.messageValidation = 'Vous venez d\'ajouter une matirèe ! Recharger la page pour voir la liste à jour.';
+          this.messageValidation = 'Vous venez d\'ajouter la matière '+ this.matiereCreate.nom+' ! Recharger la page pour voir la liste à jour.';
         }
         else { this.messageEchec = 'Il y a un problème de saisi ! Veuillez recomencer'; }
       }
@@ -71,13 +71,13 @@ export class AllMatiereComponent implements OnInit {
 
 
   delete(id: number) {
+    console.log("DEBUG id = " +id);
     this.service.delete(id).subscribe(
       (responseDto) => {
-        if (!responseDto.error) {
           this.allMatieres = this.allMatieres.filter(
             e => e.id !== id
           );
-        }
+          this.getAll();
       });
   }
 

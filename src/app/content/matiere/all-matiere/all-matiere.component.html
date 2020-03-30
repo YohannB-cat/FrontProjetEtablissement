@@ -9,30 +9,25 @@
             </label>
             <br>
             <input #searchBox id="search-box" type="number" placeholder="Tapez l'ID ici .." />
-            <button type="button" class="btn btn-info" (click)="this.getOne(searchBox.value)" >Chercher</button>
+            <button type="button" class="btn btn-info" (click)="this.getOne(searchBox.value)">Chercher</button>
 
         </div>
-    
+
         <!--BLOC CREATION MATIERE-->
         <div id=" add-matiere" class="clo-lg-6" style="margin-left: 10%;">
+            <br>
+            <form [formGroup]="addForm" (ngSubmit)="this.create()">
+                <h2><label>Ajouter matiere</label></h2>
+                Nom : <input id="nom" name="nom" placeholder="Tapez le nom ici .." [(ngModel)]="this.matiereCreate.nom"
+                    formControlName="nom" />
+                <button type="submit" class="btn btn-info" [disabled]="!addForm.valid">Ajouter</button>
                 <br>
-                <form [formGroup]="addForm" (ngSubmit)="this.create()">
-                    <h2><label>Ajouter matiere</label></h2>
-                    ID : <input id="id" name="id" placeholder="Tapez l'ID ici' .." [(ngModel)]="this.matiereCreate.id"
-                        formControlName="id" required appForbiddenNumber=0 />
-                    Nom : <input id="nom" name="nom" placeholder="Tapez le nom ici .."
-                        [(ngModel)]="this.matiereCreate.nom" formControlName="nom" />
-                    <button type="submit" class="btn btn-info" [disabled]="!addForm.valid">Ajouter</button>
-                    <br>
-                    <!--Message d'erreur validator-->
-                    <div *ngIf="id.errors && (id.dirty || id.touched)" class="alert alert-danger">
-                        L'Id est nécessaire.
-                    </div>
-                    <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
-                        Le nom est nécessaire.
-                    </div>
+                <!--Message d'erreur validator-->
+                <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
+                    Le nom est nécessaire.
+                </div>
 
-                    <div *ngIf="this.messageValidation != null || this.messageEchec != null">
+                <div *ngIf="this.messageValidation != null || this.messageEchec != null">
                     <!-- MESAGE D'ECHEC OU VALIDATION POUR CREATION-->
                     <div class="alert alert-success" *ngIf="this.messageValidation">
                         <strong>Success!</strong> {{this.messageValidation}}
@@ -41,13 +36,13 @@
                         <strong>Warning!</strong> {{this.messageEchec}}
                     </div>
                 </div>
-                </form>
+            </form>
         </div>
     </div>
 
     <div class="row">
         <!--ELEMENT RECHERCHE FIND BY ID-->
-        <div *ngIf="this.matiereById" >
+        <div *ngIf="this.matiereById">
             <h2>La matière recherchée est :</h2>
             <table class="table table-hover">
                 <thead>
@@ -67,7 +62,7 @@
                         </td>
                         <td>
                             <a routerLink="/matiere/detail">
-                                <button class="btn btn-info">Modifier</button>
+                                <button class="btn btn-info" (click)="this.stockageMatiere(e)">Modifier</button>
                             </a>
                         </td>
                     </tr>
@@ -95,7 +90,10 @@
                     <td>{{e.id}}</td>
                     <td>{{e.nom}}</td>
                     <td>
-                        <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
+
+                        <button class="btn btn-danger" (click)="this.delete(e.id)"
+                            routerLink="/matiere">Supprimer</button>
+
                     </td>
                     <td>
                         <a routerLink="/matiere/detail">

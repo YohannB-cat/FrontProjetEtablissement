@@ -4,14 +4,15 @@
    <form [formGroup]="updateForm" (ngSubmit)="this.update()">
       <h2><label> Détail de la matiere {{this.matiereSelected.nom}}</label></h2>
       <hr>
-      <br>
+
       ID : {{this.matiereSelected.id}}
       <br>
       <span style="color: red;">Vous ne pouvez pas modifier l'id</span>
       <br>
-      Nom : {{this.matiereSelected}}
+      Nom : {{this.matiereSelected.nom}}
       <br> <br>
-      <input type="text" placeholder="Tapez le nouveau nom ici .." required formControlName="nom"
+       Nouveau nom : 
+       <input type="text" placeholder="Tapez le nouveau nom ici .." required formControlName="nom"
          [(ngModel)]="this.matiereSelected.nom" />
       <br>
       <!--Message validator-->
@@ -32,6 +33,5 @@
          </div>
       </div>
    </form>
-
-
+   <br>
 </div>
