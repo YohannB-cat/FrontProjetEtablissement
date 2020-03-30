@@ -1,12 +1,15 @@
 <div>
+    <h2>Nouvel Examen :</h2>
+    <hr>
     <form class="col-lg-3 col-sm-6" [formGroup]="examenForm" (ngSubmit)="this.save()">
         <div class="form-group">
             <label for="Type">Type :</label>
-            <input type="text" class="form-control"  formControlName="type" placeholder="Ex : Devoir maison" name="type" required>
+            <input type="text" class="form-control"  formControlName="type" placeholder="Ex : Devoir maison" name="type">
+            <span *ngIf="this.examenForm.get('type').hasError('maxlength')">Attention vous dépassez le nombre de caractère autorisé !</span>
         </div>
         <div class="form-group">
             <label for="Date">Date :</label>
-            <input type="date" class="form-control" [(ngModel)]="this.examen.date" formControlName="date" name="date" required >
+            <input type="date" class="form-control" [(ngModel)]="this.examen.date" formControlName="date" name="date">
         </div>
 
         <div class="form-group">
