@@ -3,11 +3,14 @@
 
     <input type="number" #searchBox id="search-box" />
     <button type="button" class="btn btn-info" (click)="this.getOne(searchBox.value)">Chercher</button>
-
-    <h2>Liste des examens :</h2>
+    <hr>
+    <button type="button" class="btn btn-info" (click)="this.getAll()">Voir la liste entière</button>
+    <hr>
     <a routerLink="/examen/add">
-        <input type="button" value="Ajouter un examen" class="btn btn-info"/>
+    <input type="button" value="Ajouter un examen" class="btn btn-info"/>
     </a>
+    <hr>
+    <h2>Liste des examens :</h2>
     
     <table class="table table-hover">
         <thead>
@@ -26,7 +29,6 @@
                 <td>{{e.date}}</td>
                 <td>
                     <button class="btn btn-danger" (click)="this.delete(e.id)">Supprimer</button>
-                    <button class="btn btn-info" (click)="this.getOne(e.id)">Détail</button>
                 </td>
             </tr>
         </tbody>

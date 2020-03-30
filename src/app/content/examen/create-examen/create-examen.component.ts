@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExamenService } from 'src/app/services/examen/examen.service';
 import { ExamenDto } from 'src/app/models/examen-dto';
+import { FormGroup,FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-examen',
@@ -8,6 +9,11 @@ import { ExamenDto } from 'src/app/models/examen-dto';
   styleUrls: ['./create-examen.component.css']
 })
 export class CreateExamenComponent implements OnInit {
+  examenForm = new FormGroup({
+    type: new FormControl(''),
+    coefficient: new FormControl(''),
+    date: new FormControl(''),
+  });
 
   examen = new ExamenDto();
   messageValidation = '';
@@ -16,6 +22,11 @@ export class CreateExamenComponent implements OnInit {
   constructor(private service: ExamenService) { }
 
   ngOnInit(): void {
+    this.examenForm = new FormGroup({
+      type: new FormControl(this.examen.type,[Validators.required,Validators.maxLength(20)]),
+      coefficient: new FormControl(this.examen.coefficient,Validators.required),
+      date: new FormControl(this.examen.date,Validators.required),
+    });
   }
 
   save() {

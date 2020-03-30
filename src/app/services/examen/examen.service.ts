@@ -20,7 +20,7 @@ export class ExamenService {
   }
 
   delete(id: number): Observable<ResponseDto> {
-    return this.http.delete<ResponseDto>(this.URL + 'id=' + id);
+    return this.http.delete<ResponseDto>(this.URL + id);
   }
 
   create(etudiant: ExamenDto): Observable<ResponseDto> {
@@ -30,7 +30,7 @@ export class ExamenService {
     return this.http.put<ResponseDto>(this.URL, etudiant);
   }
   getOne(id: number): Observable<ResponseDto> {
-    return this.http.get<ResponseDto>(this.URL + 'id=' + id);
+    return this.http.get<ResponseDto>(this.URL + id);
   }
   getMatiere(id: number): Observable<ResponseDto> {
     return this.http.get<ResponseDto>(this.URL + 'matiere?id=' + id);

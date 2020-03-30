@@ -37,6 +37,7 @@ export class AllExamenComponent implements OnInit {
             element =>  element.id !== id
           );
         }
+        this.getAll();
         console.log('result after delete: ', this.allExamen);
       }
     );
