@@ -1,13 +1,13 @@
 <div>
-    <form [formGroup]='absenceForm' class="col-lg-3 col-sm-6">
+    <form [formGroup]='absenceForm' class="col-lg-3 col-sm-6" (ngSubmit)="this.save()">
         <div class="form-group">
             <label for="debut">Date début (YYYY-MM-DD) :</label>
-            <input id="debut" type="text" class="form-control" [(ngModel)]="this.absence.debut" name="debut" placeholder="YYYY-MM-DD" formControlName="debut" required>
-            <div *ngIf="debut.errors && (debut.dirty)" class="alert alert-danger">Ce champ est requis !</div>
+            <input id="debut" type="date" class="form-control" [(ngModel)]="this.absence.debut" name="debut" placeholder="YYYY-MM-DD" formControlName="debut" required >
+            <div *ngIf="debut.errors && (debut.dirty)" class="alert alert-danger">Ce champ est requis et le format doit être valide !</div>
         </div>
         <div class="form-group">
             <label for="fin">Date fin (YYYY-MM-DD) :</label>
-            <input id="fin" type="text" class="form-control" [(ngModel)]="this.absence.fin" name="fin" placeholder="YYYY-MM-DD" formControlName="fin" required>
+            <input id="fin" type="date" class="form-control" [(ngModel)]="this.absence.fin" name="fin" placeholder="YYYY-MM-DD" formControlName="fin" required>
             <div *ngIf="fin.errors && (fin.touched || fin.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
         <div class="form-group">
@@ -20,8 +20,8 @@
             <input id="description" type="text" class="form-control" [(ngModel)]="this.absence.description" name="description" formControlName="description" required>
             <div *ngIf="description.errors && (description.touched || description.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
-            
-        <button type="button" class="btn btn-primary" (click)="this.save()">Submit</button>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!this.absenceForm.valid">Submit</button>
 
         <div class="alert alert-success" *ngIf="messageValidation.length">
             <strong>Success!</strong> {{this.messageValidation}}

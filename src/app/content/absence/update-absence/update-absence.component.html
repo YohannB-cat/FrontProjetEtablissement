@@ -1,12 +1,14 @@
 <div>
-    <form class="col-lg-3 col-sm-6">
+    <form [formGroup]='absenceUpForm' class="col-lg-3 col-sm-6" (ngSubmit)="this.update()">
         <div class="form-group">
             <label for="debut">Début (YYYY-MM-DD) :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.debut"  name="debut" required=true>
+            <input id="debut" type="date" class="form-control" [(ngModel)]="this.absence.debut"  name="debut" formControlName="debut" required>
+            <div *ngIf="debut.errors && (debut.touched || debut.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
         <div class="form-group">
             <label for="fin">Fin (YYYY-MM-DD) :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.fin" value="fin" name="fin" required>
+            <input id="fin" type="date" class="form-control" [(ngModel)]="this.absence.fin" value="fin" name="fin" formControlName="fin" required>
+            <div *ngIf="fin.errors && (fin.touched || fin.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
         <div class="form-group">
             <label for="justification">Justification :</label>
@@ -14,16 +16,14 @@
         </div>
         <div class="form-group">
             <label for="description">Description :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.description" value="description" name="description" required=true>
+            <input type="text" class="form-control" [(ngModel)]="this.absence.description" value="description" name="description" required>
             
         </div>
        
-        <button type="button" class="btn btn-primary" (click)="this.update()">Modifier</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!this.absenceUpForm.valid">Submit</button>
 
         <div class="alert alert-success" *ngIf="messageValidation.length">
             <strong>Success!</strong> {{this.messageValidation}}
         </div>
-
     </form>
-
 </div>
