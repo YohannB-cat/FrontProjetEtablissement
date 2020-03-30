@@ -1,20 +1,24 @@
 <div>
-    <form class="col-lg-3 col-sm-6">
+    <form [formGroup]='absenceForm' class="col-lg-3 col-sm-6">
         <div class="form-group">
             <label for="debut">Date début (YYYY-MM-DD) :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.debut" placeholder="Date début ex 2020-02-20" name="debut" required>
+            <input id="debut" type="text" class="form-control" [(ngModel)]="this.absence.debut" name="debut" placeholder="YYYY-MM-DD" formControlName="debut" required>
+            <div *ngIf="debut.errors && (debut.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
         <div class="form-group">
             <label for="fin">Date fin (YYYY-MM-DD) :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.fin" placeholder="Date fin ex 2020-02-20" name="fin" required>
+            <input id="fin" type="text" class="form-control" [(ngModel)]="this.absence.fin" name="fin" placeholder="YYYY-MM-DD" formControlName="fin" required>
+            <div *ngIf="fin.errors && (fin.touched || fin.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
         <div class="form-group">
             <label for="justification">Justification :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.justification" placeholder="justification" name="justification" required>
+            <input id="justification" type="text" class="form-control" [(ngModel)]="this.absence.justification" name="justification" formControlName="justification" required>
+            <div *ngIf="justification.errors && (justification.touched || justification.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
         <div class="form-group">
             <label for="description">Description :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.absence.description" placeholder="description" name="description" required>
+            <input id="description" type="text" class="form-control" [(ngModel)]="this.absence.description" name="description" formControlName="description" required>
+            <div *ngIf="description.errors && (description.touched || description.dirty)" class="alert alert-danger">Ce champ est requis !</div>
         </div>
             
         <button type="button" class="btn btn-primary" (click)="this.save()">Submit</button>
@@ -22,7 +26,5 @@
         <div class="alert alert-success" *ngIf="messageValidation.length">
             <strong>Success!</strong> {{this.messageValidation}}
         </div>
-
     </form>
-
 </div>
