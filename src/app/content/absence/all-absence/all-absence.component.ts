@@ -34,7 +34,10 @@ export class AllAbsenceComponent implements OnInit {
     )
   }
 
-  delete(id: number) {
+  delete(id : number) {
+    console.log("DEBUG id = " +id);
+    console.log("DEBUG id = " +id.valueOf);
+
     this.service.delete(id).subscribe(
       responseDto => {
         console.log('debug responseDto : ', responseDto);
@@ -42,6 +45,7 @@ export class AllAbsenceComponent implements OnInit {
           this.allAbsence = this.allAbsence.filter(
             element => element.id !== id
           );
+          this.absence=null;
         }
         console.log('result after delete: ', this.allAbsence);
       }
