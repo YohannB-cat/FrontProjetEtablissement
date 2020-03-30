@@ -13,6 +13,8 @@ import { Module } from 'src/app/models/module';
 
 export class MatiereService {
 
+  matiere = new MatiereCreateDto;
+
   constructor(private http: HttpClient) { }
 
   private URL = environment.baseUrl + 'matiere';

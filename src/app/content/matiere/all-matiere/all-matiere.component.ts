@@ -81,4 +81,8 @@ export class AllMatiereComponent implements OnInit {
       });
   }
 
+  stockageMatiere(matiere : MatiereCreateDto) { 
+    this.service.matiere = matiere ;
+  }
+  
 }
