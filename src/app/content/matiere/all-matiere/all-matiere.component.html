@@ -3,32 +3,53 @@
         <!--BLOC FIND BY ID-->
         <div id="search-matiere" class="clo-lg-6">
             <br>
-            <h2><label for="search-box">Recherche par ID</label></h2>
+            <form [formGroup]="getIDForm" (ngSubmit)="this.getOne()">
+                <label>
+                    <h2>Rechercher pa ID</h2>
+                </label>
+                <br>
+                <input id="idSearch" name="idSearch" type="text"  [(ngModel)]="this.matiereById" placeholder="Tapez l'ID ici .."formControlName="idSearch" required />
+                <button type="submit" class="btn btn-info" [disabled]="!getIdForm.valid" >Chercher</button>
+            </form>
+            <div *ngIf="idSearch.errors && (idSearch.dirty || idSearch.touched)" class="alert alert-danger">
+                L' Id est necessaire.
 
-            <input #searchBox id="search-box" (input)="getOne(searchBox.value)" placeholder="Tapez l'ID ici .." />
-            <button type="button" class="btn btn-info" >Chercher</button>
-            <br>
+                <div *ngIf="idSearch.errors.appForbiddenNumber">
+                    Id ne peut pas être 0.
+                </div>
+            </div>
         </div>
 
         <!--BLOC CREATION MATIERE-->
         <div id="add-matiere" class="clo-lg-6" style="margin-left: 10%;">
             <br>
-            <h2><label>Ajouter matiere</label></h2>
-            ID : <input placeholder="Tapez l'ID ici' .." [(ngModel)]="this.matiereCreate.id" />
-            Nom : <input placeholder="Tapez le nom ici .." [(ngModel)]="this.matiereCreate.nom"/>
-            <input type="button" value="Ajouter" class="btn btn-info" (click)="this.create()" />
-            <br>
+            <form [formGroup]="addForm" (ngSubmit)="this.create()">
+                <h2><label>Ajouter matiere</label></h2>
+                ID : <input id="id" name="id" placeholder="Tapez l'ID ici' .." [(ngModel)]="this.matiereCreate.id"
+                    formControlName="id" required appForbiddenNumber=0 />
+                Nom : <input id="nom" name="nom" placeholder="Tapez le nom ici .." [(ngModel)]="this.matiereCreate.nom"
+                    formControlName="nom" />
+                <button type="submit" class="btn btn-info" [disabled]="!addForm.valid">Ajouter</button>
+                <br>
+                <!--Message d'erreur validator-->
+                <div *ngIf="id.errors && (id.dirty || id.touched)" class="alert alert-danger">
+                    L'Id est nécessaire.
+                </div>
+                <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
+                    Le nom est nécessaire.
+                </div>
 
-            <!-- MESAGE D'ECHEC OU VALIDATION POUR CREATION-->
-            <div class="alert alert-success" *ngIf="this.messageValidation">
-                <strong>Success!</strong> {{this.messageValidation}}
-            </div>
-            <div class="alert alert-danger" *ngIf="this.messageEchec">
-                <strong>Warning!</strong> {{this.messageEchec}}
-            </div>
-
+                <!-- MESAGE D'ECHEC OU VALIDATION POUR CREATION-->
+                <div class="alert alert-success" *ngIf="this.messageValidation">
+                    <strong>Success!</strong> {{this.messageValidation}}
+                </div>
+                <div class="alert alert-danger" *ngIf="this.messageEchec">
+                    <strong>Warning!</strong> {{this.messageEchec}}
+                </div>
+            </form>
         </div>
     </div>
+
     <div class="row">
         <!--ELEMENT RECHERCHE FIND BY ID-->
         <div *ngIf="!this.matiereById" id="result-search">

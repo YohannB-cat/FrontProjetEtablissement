@@ -22,8 +22,8 @@ const routes: Routes = [
   
   { path: '', component: DashboardComponent },
   //{ path: 'niveau', component: AppComponent },
-  { path: 'classe', component: AppComponent},
-  { path: 'module', component: AllModuleComponent},
+  { path: 'classe', component: AllClasseComponent},
+ // { path: 'module', component: AllModuleComponent},
   { path: 'matiere', component: AllMatiereComponent },
   { path: 'etudiant', component: AllEtudiantComponent },
   { path: 'etudiant/add', component: CreateEtudiantComponent },
