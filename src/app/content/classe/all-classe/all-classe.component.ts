@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClasseCreateDto } from "src/app/models/classe-create-dto";
 import { ClassesService } from "src/app/services/classe/classes.service";
-import { ResponseDto } from 'src/app/models/response-dto';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-all-classe',
