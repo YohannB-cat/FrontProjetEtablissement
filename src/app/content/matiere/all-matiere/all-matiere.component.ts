@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatiereCreateDto } from 'src/app/models/matiere-create-dto';
 import { MatiereService } from 'src/app/services/mmatiere/matiere.service';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 
@@ -15,10 +15,8 @@ export class AllMatiereComponent implements OnInit {
   allMatieres = new Array<MatiereCreateDto>();
   messageValidation: string;
   messageEchec: string;
-  matiereById = new MatiereCreateDto();
+  matiereById = null;
   matiereCreate = new MatiereCreateDto();
-
-  getIdForm: FormGroup;
 
   addForm: FormGroup;
 
@@ -26,18 +24,11 @@ export class AllMatiereComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-    this.getIdForm = new FormGroup({
-      'idSearch': new FormControl(this.matiereById.id, Validators.required)
-    });
-
     this.addForm = new FormGroup({
       'id': new FormControl(this.matiereCreate.id, Validators.required,),
       'nom': new FormControl(this.matiereCreate.nom, Validators.required)
     })
   }
-
-
-  get idSearch() { return this.getIdForm.get('id'); }
 
   get id() { return this.addForm.get('id'); }
   get nom() { return this.addForm.get('nom'); }
@@ -54,6 +45,7 @@ export class AllMatiereComponent implements OnInit {
   }
 
   getOne(id: number) {
+    this.matiereById = null;
     this.service.getOne(id).subscribe(
       responseDto => {
         if (!responseDto.error) {
