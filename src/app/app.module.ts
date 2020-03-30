@@ -26,6 +26,7 @@ import { UpdateComponent } from './content/etudiant/update/update.component';
 import { AllAbsenceComponent } from './content/absence/all-absence/all-absence.component';
 import { CreateAbsenceComponent } from './content/absence/create-absence/create-absence.component';
 import { UpdateAbsenceComponent } from './content/absence/update-absence/update-absence.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UpdateAbsenceComponent } from './content/absence/update-absence/update-
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     HttpClientModule
