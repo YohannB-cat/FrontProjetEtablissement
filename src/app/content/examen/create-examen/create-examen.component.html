@@ -2,16 +2,16 @@
     <form class="col-lg-3 col-sm-6" [formGroup]="examenForm" (ngSubmit)="this.save()">
         <div class="form-group">
             <label for="Type">Type :</label>
-            <input type="text" class="form-control" [(ngModel)]="this.examen.type" #formControlName="ngModel" placeholder="Ex : Devoir maison" name="type" required>
+            <input type="text" class="form-control"  formControlName="type" placeholder="Ex : Devoir maison" name="type" required>
         </div>
         <div class="form-group">
             <label for="Date">Date :</label>
-            <input type="date" class="form-control" [(ngModel)]="this.examen.date" #formControlName="ngModel" name="date" required >
+            <input type="date" class="form-control" [(ngModel)]="this.examen.date" formControlName="date" name="date" required >
         </div>
 
         <div class="form-group">
             <label for="Coefficient">Coefficient:</label>
-            <input type="number" class="form-control" [(ngModel)]="this.examen.coefficient" #formControlName="ngModel" placeholder="Ex : 2.2" name="coefficient" required>
+            <input type="number" class="form-control" [(ngModel)]="this.examen.coefficient" formControlName="coefficient" placeholder="Ex : 2.2" name="coefficient" required>
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="!examenForm.valid">Soumettre</button>
