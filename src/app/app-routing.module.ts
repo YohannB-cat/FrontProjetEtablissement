@@ -16,7 +16,7 @@ import { UpdateComponent } from './content/etudiant/update/update.component';
 import { AllAbsenceComponent } from './content/absence/all-absence/all-absence.component';
 import { CreateAbsenceComponent } from './content/absence/create-absence/create-absence.component';
 import { UpdateAbsenceComponent } from './content/absence/update-absence/update-absence.component';
-//import { AllClasseComponent } from '.content/classe/All-classe/AllClasseComponent';
+import { AllClasseComponent } from './content/classe/all-classe/all-classe.component';
 
 const routes: Routes = [
   
