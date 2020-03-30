@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EtudiantDto } from 'src/app/models/etudiant-dto';
 import { EtudiantsService } from 'src/app/services/etudiant/etudiants.service';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-etudiant',
@@ -18,7 +18,7 @@ export class CreateEtudiantComponent implements OnInit {
 
   ngOnInit() {
     this.etudiantForm = new FormGroup({
-      'nom' : new FormControl(this.etudiant.nom, Validators.required),
+      'nom' : new FormControl(this.etudiant.nom, [Validators.required, this.forbiddenNameValidator(/drop table/)]),
       'prenom': new FormControl(this.etudiant.prenom, Validators.required),
       'email': new FormControl(this.etudiant.email, Validators.required),
       'cni': new FormControl(this.etudiant.cni, Validators.required),
@@ -41,6 +41,13 @@ export class CreateEtudiantComponent implements OnInit {
         }
       }
     );
+  }
+
+  forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: any} | null => {
+      const forbidden = nameRe.test(control.value);
+      return forbidden ? {'forbiddenName': {value: control.value}} : null;
+    };
   }
 
 }
