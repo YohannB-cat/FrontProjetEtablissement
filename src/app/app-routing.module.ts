@@ -16,22 +16,22 @@ import { UpdateComponent } from './content/etudiant/update/update.component';
 import { AllAbsenceComponent } from './content/absence/all-absence/all-absence.component';
 import { CreateAbsenceComponent } from './content/absence/create-absence/create-absence.component';
 import { UpdateAbsenceComponent } from './content/absence/update-absence/update-absence.component';
+//import { AllClasseComponent } from '.content/classe/All-classe/AllClasseComponent';
 
 const routes: Routes = [
   
   { path: '', component: DashboardComponent },
-  { path: 'niveau', component: AppComponent },
+  //{ path: 'niveau', component: AppComponent },
   { path: 'classe', component: AppComponent},
   { path: 'module', component: AllModuleComponent},
   { path: 'matiere', component: AllMatiereComponent },
   { path: 'etudiant', component: AllEtudiantComponent },
   { path: 'etudiant/add', component: CreateEtudiantComponent },
   { path: 'etudiant/update', component : UpdateComponent},
-  { path: 'examen', component: AppComponent },
   { path: 'examen', component:AllExamenComponent},
   { path: 'examen/add', component:CreateExamenComponent},
   { path: 'examen/detail', component:DetailedExamenComponent},
-  { path: 'note', component: AppComponent },
+ // { path: 'note', component: AppComponent },
   { path: 'matiere/detail', component: MatiereDetailComponent },
   { path: 'module/detail', component : DetailModuleComponent},
   { path: 'absence', component: AllAbsenceComponent },
